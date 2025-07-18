@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* Vazirmatn And Gulzar */
+@import url("https://fonts.googleapis.com/css2?family=Gulzar&family=Vazirmatn:wght@100..900&display=swap");
+
+@layer base {
+  :root {
+    @apply text-[rgba(255,255,255,0.87)] bg-[#242424] box-border;
+  }
+
+  body {
+    @apply text-center min-w-[320px] min-h-screen text-sm;
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.05;
+  background: url("assets/images/logo.png");
+  background-color: rgba(200, 200, 200, 1);
+  background-size: 300px;
+  transform: rotate(-8deg) scale(1.35);
+  animation: slide 30s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes slide {
+  from {
+    background-position: 100vh 0;
+  }
+  to {
+    background-position: 20% 100vh;
+  }
+}
+
+.container {
+  /* Gulzar Font */
+  font-family: "Gulzar", "Vazirmatn", "serif";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 4mm;
+}
+
+.Tutorial-btn-container {
+  @apply flex flex-col items-center justify-center text-center px-12 my-4;
+}
+#Tutorial-button {
+  @apply border border-red-500 rounded-lg bg-sky-400 text-gray-600 px-4 py-2;
+}
+#Tutorial-button:hover {
+  @apply bg-sky-500 text-white;
+}
+
+.Tutorial-content-container {
+  @apply flex-col mx-auto text-2xl text-center w-3/4 h-auto my-2 relative;
+}
+.Tutorial-content {
+  @apply text-right;
+}
+
+#game {
+  @apply border-2 border-b-blue-500 flex justify-around w-1/4 m-auto;
+}
+
+#btn {
+  @apply border-3 border-purple-500 rounded-lg bg-gray-700 px-4 py-2;
+}
+
+#btn:hover {
+  @apply bg-sky-400 text-white;
+}
