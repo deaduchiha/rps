@@ -1,6 +1,7 @@
-import './style.css'
+// fake commit
+import "./style.css";
 
-document.querySelector('#app').innerHTML = `
+document.querySelector("#app").innerHTML = `
  <div class="container mx-auto">
       <h1 class="text-3xl font-bold m-1.5">بازی سنگ، کاغذ، قیچی</h1>
       <h3>روی دکمه (آموزش بازی) بزنید تا نحوه بازی را یاد بگیرید</h3>
@@ -44,40 +45,38 @@ document.querySelector('#app').innerHTML = `
         <p id="result-text"></p>
       </div>
     </div>
-`
-const TutorialContent = document.getElementsByClassName('Tutorial-content-container')[0];
-document.querySelector('#Tutorial-button').addEventListener('click', () => {
+`;
+const TutorialContent = document.getElementsByClassName(
+  "Tutorial-content-container"
+)[0];
+document.querySelector("#Tutorial-button").addEventListener("click", () => {
   // console.log("Clicked");
 
-  if (TutorialContent.classList.contains('hidden')) {
-    TutorialContent.classList.remove('hidden');
-    TutorialContent.classList.add('flex');
+  if (TutorialContent.classList.contains("hidden")) {
+    TutorialContent.classList.remove("hidden");
+    TutorialContent.classList.add("flex");
     // console.log("Tutorial content show");
   } else {
-    TutorialContent.classList.add('hidden');
-    TutorialContent.classList.remove('flex');
+    TutorialContent.classList.add("hidden");
+    TutorialContent.classList.remove("flex");
     // console.log("Tutorial content hidden");
   }
 });
 
-
-const result_container = document.getElementById('result');
-const result_text = document.getElementById('result-text');
+const result_container = document.getElementById("result");
+const result_text = document.getElementById("result-text");
 let Player_Choice = null;
 let Bot_Choice = null;
-
 
 const Rock = document.querySelector('[data-player-choise="Rock"]');
 const Paper = document.querySelector('[data-player-choise="Paper"]');
 const Scissors = document.querySelector('[data-player-choise="Scissors"]');
 
-
-Rock.addEventListener('click', () => handleChoice('Rock'));
-Paper.addEventListener('click', () => handleChoice('Paper'));
-Scissors.addEventListener('click', () => handleChoice('Scissors'));
+Rock.addEventListener("click", () => handleChoice("Rock"));
+Paper.addEventListener("click", () => handleChoice("Paper"));
+Scissors.addEventListener("click", () => handleChoice("Scissors"));
 
 function handleChoice(playerChoice) {
-
   Player_Choice = playerChoice;
 
   handleBotChoice();
@@ -86,13 +85,13 @@ function handleChoice(playerChoice) {
 }
 
 function handleBotChoice() {
-  const choices = ['Rock', 'Paper', 'Scissors'];
+  const choices = ["Rock", "Paper", "Scissors"];
   const randomIndex = Math.floor(Math.random() * 3);
   Bot_Choice = choices[randomIndex];
 }
 
 function determineWinner() {
-  result_container.classList.remove('hidden');
+  result_container.classList.remove("hidden");
 
   if (Player_Choice === Bot_Choice) {
     result_text.innerText = "مساوی شد!";
@@ -100,9 +99,9 @@ function determineWinner() {
   }
 
   const rules = {
-    Rock: 'Scissors',
-    Paper: 'Rock',
-    Scissors: 'Paper'
+    Rock: "Scissors",
+    Paper: "Rock",
+    Scissors: "Paper",
   };
 
   if (rules[Player_Choice] === Bot_Choice) {
